@@ -2,7 +2,10 @@
 
 export default function Photos() {
   const photos = [
-    { title: 'Coming Soon', date: '2026' },
+    { src: '/IMG_1466.jpg', alt: 'Photo 1' },
+    { src: '/IMG_1474.jpg', alt: 'Photo 2' },
+    { src: '/IMG_1478.jpg', alt: 'Photo 3' },
+    { src: '/IMG_1594.jpg', alt: 'Photo 4' },
   ]
 
   return (
@@ -26,18 +29,18 @@ export default function Photos() {
         Photos
       </h1>
 
-      <div style={{ maxWidth: '700px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', maxWidth: '100%' }}>
         {photos.map((photo, i) => (
-          <div key={i} style={{ marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid var(--color-text)', opacity: 0.6 }}>
-            <h2 style={{
-              fontSize: 'clamp(18px, 2.5vw, 24px)',
-              fontFamily: 'var(--font-garamond), serif',
-              marginBottom: '0.5rem',
-              fontWeight: 400,
-            }}>
-              {photo.title}
-            </h2>
-            <p style={{ fontSize: '14px', opacity: 0.7 }}>{photo.date}</p>
+          <div key={i} style={{ overflow: 'hidden', borderRadius: '4px' }}>
+            <img 
+              src={photo.src} 
+              alt={photo.alt}
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+              }}
+            />
           </div>
         ))}
       </div>
